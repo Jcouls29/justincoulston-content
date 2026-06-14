@@ -1,0 +1,8 @@
+{
+  "title": "Event-driven integration",
+  "description": "A producer publishes to a broker topic that fans out to independent consumers, with a dead-letter queue for poison messages.",
+  "category": "Integration",
+  "publishedDate": "2026-06-03",
+  "tags": ["events", "messaging", "decoupling"],
+  "relatedArticles": ["stress-testing-software-architectures"]
+}

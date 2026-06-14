@@ -1,0 +1,8 @@
+{
+  "title": "Payment authorization flow",
+  "description": "How an authorization request travels from the client through the gateway and payment service to the acquirer and card network, and how the result returns.",
+  "category": "Payments",
+  "publishedDate": "2026-05-18",
+  "tags": ["payments", "sequence", "integration"],
+  "relatedArticles": ["stress-testing-software-architectures"]
+}

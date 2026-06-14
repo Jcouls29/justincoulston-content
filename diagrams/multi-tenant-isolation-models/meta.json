@@ -1,0 +1,8 @@
+{
+  "title": "Multi-tenant isolation models",
+  "description": "Silo, bridge, and pool strategies for isolating tenant data, and the cost/isolation trade-off each one makes.",
+  "category": "Multi-Tenant",
+  "publishedDate": "2026-05-26",
+  "tags": ["multi-tenancy", "data", "trade-offs"],
+  "relatedArticles": ["architecture-reviews-should-focus-on-risk"]
+}
