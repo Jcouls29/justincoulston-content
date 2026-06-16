@@ -55,19 +55,19 @@ Boundaries are created to develop efficiency during a design process. They are i
 
 A good way to imagine why boundaries are helpful, let's imagine we have a simple algebraic equation,
 
-![ax2 + bx + c](https://cdn-images-1.medium.com/max/800/0*dOjAMj24EQT41sG9)
+$$ax^2 + bx + c = 0$$
 
 Can you tell me what `x` equals from this equation? Well, of course not. We need to know what `a`, `b`, and `c` equal to figure this out. But as an architect, you might start by solving the equation for `x` without knowing the values themselves. You know there will be boundaries in the system, but they are currently unknown. So, you come up with this equation,
 
-![quadratic formula](https://cdn-images-1.medium.com/max/800/0*15zwhTXIjkGCLI3F)
+$$x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}$$
 
 Now, you could pass this off to your "developer," but they'll be making some assumptions about the values of `a`, `b`, and `c`. Sometimes, these values may be arbitrary, but very rarely. So instead, we give them the boundaries,
 
-![a = 6, b=12, c=-4](https://cdn-images-1.medium.com/max/800/0*DQSlp1p7aKrEy_2S)
+$$a = 6,\quad b = 12,\quad c = -4$$
 
 Then our developers only have two choices at this point,
 
-![x=-2.2909944487358, x=0.29099444873581](https://cdn-images-1.medium.com/max/800/0*oKUhhLjEd6gPOvlh)
+$$x \approx -2.2910, \quad x \approx 0.2910$$
 
 They still have some choices, but we have created boundaries for them. I use this analogy because it is easy to understand. However, real-life boundaries are more like the following:
 
