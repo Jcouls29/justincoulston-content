@@ -1,0 +1,36 @@
+name: Notify site to rebuild
+
+# On every push to this content repo's main, ask the site repo (justincoulston-site) to rebuild
+# and redeploy. We mint a short-lived GitHub App installation token scoped to the site repo and
+# POST a `content-updated` repository_dispatch. The site workflow advances its pinned content/
+# submodule pointer to this latest commit and deploys. See the site repo's
+# .github/workflows/azure-static-web-apps.yml and docs/deploy-runbook.md.
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Mint a GitHub App token scoped to the site repo
+        uses: actions/create-github-app-token@v3
+        id: app-token
+        with:
+          app-id: ${{ secrets.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+          owner: Jcouls29
+          repositories: justincoulston-site
+
+      - name: Dispatch content-updated to justincoulston-site
+        env:
+          TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          curl -fsS -X POST \
+            -H "Authorization: Bearer $TOKEN" \
+            -H "Accept: application/vnd.github+json" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/repos/Jcouls29/justincoulston-site/dispatches \
+            -d '{"event_type":"content-updated"}'
+          echo "Dispatched content-updated → justincoulston-site."
